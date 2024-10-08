@@ -1,0 +1,6 @@
+@SJ_BE_SERVICE_ZipUnzipFile_HostAddress = http://localhost:5211
+
+GET {{SJ_BE_SERVICE_ZipUnzipFile_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
