@@ -12,5 +12,8 @@ jobs:
         - name: build image
           run: docker build ./SJ-BE-SERVICE-ZipUnzipFile/ -t juliorbt1/sjbeservicezipunzipfile:latest
         - name: push image to docker hub
-          run: docker push juliorbt1/sjbeservicezipunzipfile:latest
+          run:
+              docker login -u juliorbt1 -p $({ secrets.DOCKER_HUB_TOKEN }) 
+              docker push juliorbt1/sjbeservicezipunzipfile:latest
+
         
