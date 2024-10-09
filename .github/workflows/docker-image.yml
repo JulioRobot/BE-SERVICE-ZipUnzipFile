@@ -14,13 +14,13 @@ jobs:
           uses: actions/checkout@v4
 
         - name: login docker
-          run: docker login -u "${{env.USERNAME_DOCKER}}" -p "${{env.PASSWORD_DOCKER}}"
+          run: docker login -u "${{env.USERNAME_DOCKER}}" -p "${{secrets.PASSWORD_DOCKER}}"
 
         - name: build image
-          run: docker buildx build -t ${{env.IMG_NAME}}:"${{env.VERSION_IMAGE_TAG}}" .
+          run: docker buildx build -t ${{env.IMG_NAME}}:${{vars.VERSION_IMAGE_TAG}} .
 
         - name: push image to docker hub
-          run: docker push ${{env.IMG_NAME}}:"${{env.VERSION_IMAGE_TAG}}"
+          run: docker push ${{env.IMG_NAME}}:${{vars.VERSION_IMAGE_TAG}}
               
 
         
