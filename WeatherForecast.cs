@@ -9,5 +9,7 @@ namespace SJ_BE_SERVICE_ZipUnzipFile
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
         public string? Summary { get; set; }
+
+        public string? customNote { get; set; }
     }
 }
