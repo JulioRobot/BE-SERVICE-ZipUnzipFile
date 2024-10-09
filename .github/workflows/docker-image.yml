@@ -6,6 +6,7 @@ on:
 jobs:
   publish_images:
     runs-on: ubuntu-latest
+    environment: staging
     env:
        IMG_NAME: juliorbt1/sjbeservicezipunzipfile  
     steps:
