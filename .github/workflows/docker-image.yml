@@ -27,7 +27,7 @@ jobs:
 
   deploy:
     name: Deploy service to server
-    needs: build
+    needs: publish_images
     runs-on: self-hosted
     environment: staging
     env:
