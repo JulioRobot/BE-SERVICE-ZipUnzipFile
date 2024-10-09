@@ -24,6 +24,20 @@ jobs:
 
         - name: push image to docker hub
           run: docker push ${{env.IMG_NAME}}:${{vars.VERSION_IMAGE_TAG}}
-              
+
+  deploy:
+    name: Deploy service to server
+    needs: build
+    runs-on: self-hosted
+    environment: staging
+    env:
+      IMG_NAME: juliorbt1/sjbeservicezipunzipfile
+    steps:
+      - name: Deploy service to server
+        run: sudo docker rm -f ${{vars.CONTAINER_NAME}}-${{env.TAGS}} || true
+      
+      - name: Run container
+        run: sudo docker run -d -p 8080:8080 --restart always --name ${{vars.CONTAINER_NAME}}-${{vars.VERSION_IMAGE_TAG}} ${{env.IMG_NAME}}:${{vars.VERSION_IMAGE_TAG}} 
+
 
         
