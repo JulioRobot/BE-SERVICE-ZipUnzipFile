@@ -17,10 +17,10 @@ jobs:
           run: docker login -u "${{env.USERNAME_DOCKER}}" -p "${{env.PASSWORD_DOCKER}}"
 
         - name: build image
-          run: docker buildx build -t ${{env.IMG_NAME}}:${{env.VERSION_IMAGE_TAG}} .
+          run: docker buildx build -t ${{env.IMG_NAME}}:"${{env.VERSION_IMAGE_TAG}}" .
 
         - name: push image to docker hub
-          run: docker push ${{env.IMG_NAME}}:${{env.VERSION_IMAGE_TAG}}
+          run: docker push ${{env.IMG_NAME}}:"${{env.VERSION_IMAGE_TAG}}"
               
 
         
