@@ -33,7 +33,7 @@ jobs:
     env:
       IMG_NAME: juliorbt1/sjbeservicezipunzipfile
     steps:
-      - name: Deploy service to server
+      - name: Delete old container
         run: sudo docker rm -f ${{vars.CONTAINER_NAME}}-${{env.TAGS}} || true
       
       - name: Run container
